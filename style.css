@@ -26,11 +26,16 @@ body {
     justify-content: space-between;
     width: 90%;
     max-width: 1200px;
+    position: relative;
+    /* Add this */
+    z-index: 10;
+    /* Add this */
 }
 
 .logo {
     font-weight: bold;
     font-size: 20px;
+
 }
 
 .nav-links {
@@ -86,13 +91,88 @@ body {
     color: var(--theme-secondary);
 }
 
-
-
-
 .icon {
     cursor: pointer;
 }
 
 .nav-link.active:hover~.nav-active-pill {
     transform: scale(1.05);
+}
+
+#expertise-link.expertise-open {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
+.mega-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    /* Adjust for correct vertical placement */
+    left: 55%;
+    /* Change this back to 50% for centering */
+    transform: translateX(-50%) translateY(20px);
+    width: 80%;
+    max-width: 700px;
+    background-color: var(--theme-background);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.177);
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 5;
+    transition: all 0.3s cubic-bezier(.86, 0, .07, 1);
+}
+
+.mega-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    padding-top: 44px;
+    /* Move to final position */
+}
+
+.mega-menu-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mega-menu-column {
+    width: 22%;
+}
+
+.mega-menu-column h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.mega-menu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu-column li {
+    margin-bottom: 15px;
+}
+
+.mega-menu-column a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.mega-menu-column a:hover {
+    color: #90EE90;
+}
+
+.mega-menu-column a span {
+    margin-right: 10px;
+    font-size: 16px;
 }
